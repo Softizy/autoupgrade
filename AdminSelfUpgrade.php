@@ -1711,13 +1711,13 @@ class AdminSelfUpgrade extends AdminSelfTab
             $list_files_to_upgrade = array_merge($list_files_diff, $list_files_to_upgrade);
 
             if ($key = array_search(DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php', $list_files_to_upgrade)) {
-              $list_files_to_upgrade[] = $list_files_to_upgrade[$key];
-              unset($list_files_to_upgrade[$key]);
+                $list_files_to_upgrade[] = $list_files_to_upgrade[$key];
+                unset($list_files_to_upgrade[$key]);
             }
 
             if ($key = array_search(DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'composer'.DIRECTORY_SEPARATOR.'autoload_real.php', $list_files_to_upgrade)) {
-              $list_files_to_upgrade[] = $list_files_to_upgrade[$key];
-              unset($list_files_to_upgrade[$key]);
+                $list_files_to_upgrade[] = $list_files_to_upgrade[$key];
+                unset($list_files_to_upgrade[$key]);
             }
 
             // save in a serialized array in $this->toUpgradeFileList
@@ -1991,7 +1991,7 @@ class AdminSelfUpgrade extends AdminSelfTab
                     // unzip in modules/[mod name] old files will be conserved
                     elseif ($this->ZipExtract($zip_fullpath, $dest_extract)) {
                         $this->nextQuickInfo[] = sprintf($this->l('The files of module %s have been upgraded.'), $name);
-			if (file_exists($zip_fullpath)) {
+                        if (file_exists($zip_fullpath)) {
                             unlink($zip_fullpath);
                         }
                     } else {
@@ -2142,7 +2142,7 @@ class AdminSelfUpgrade extends AdminSelfTab
                 return false;
             }
         }
-        define('_PS_INSTALLER_PHP_UPGRADE_DIR_',  INSTALL_PATH.DIRECTORY_SEPARATOR.$upgrade_dir_php.DIRECTORY_SEPARATOR);
+        define('_PS_INSTALLER_PHP_UPGRADE_DIR_', INSTALL_PATH.DIRECTORY_SEPARATOR.$upgrade_dir_php.DIRECTORY_SEPARATOR);
 
         //old version detection
         global $oldversion, $logger;
@@ -4062,11 +4062,11 @@ txtError[37] = "'.$this->l('The config/defines.inc.php file was not found. Where
                     <div class="col-lg-9">
                         <select name="restoreName">
                             <option value="0">'.$this->l('-- Choose a backup to restore --').'</option>';
-                        if (is_array($backup_available) && count($backup_available)) {
-                            foreach ($backup_available as $backup_name) {
-                                $this->_html .= '<option value="'.$backup_name.'">'.$backup_name.'</option>';
-                            }
-                        }
+        if (is_array($backup_available) && count($backup_available)) {
+            foreach ($backup_available as $backup_name) {
+                $this->_html .= '<option value="'.$backup_name.'">'.$backup_name.'</option>';
+            }
+        }
         $this->_html .= '</select>
                         <span id="buttonDeleteBackup"></span>
                     </div>
@@ -4478,7 +4478,6 @@ txtError[37] = "'.$this->l('The config/defines.inc.php file was not found. Where
                     if (!empty($this->upgrader->changelog)) {
                         $this->_html .= '<p><a href="' . $this->upgrader->changelog . '" target="_blank" >' . $this->l('open changelog in a new window') . '</a></p>';
                     }
-
                 } else {
                     $this->_html .= sprintf($this->l('No file will be downloaded (channel %s is used)'), $channel);
                 }
@@ -5777,7 +5776,6 @@ $(document).ready(function()
         global $kernel;
 
         if (null === $moduleDataUpdater) {
-
             if (is_null($kernel)) {
                 require_once _PS_ROOT_DIR_.'/app/AppKernel.php';
                 $kernel = new AppKernel(_PS_MODE_DEV_?'dev':'prod', _PS_MODE_DEV_);
